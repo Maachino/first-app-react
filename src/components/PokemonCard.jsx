@@ -1,4 +1,4 @@
-
+import PropTypes from "prop-types";
 
 function PokemonCard(props) {
 
@@ -18,6 +18,13 @@ if(props.pokemon.imgSrc!==undefined) {
         
  }
    
+}
+
+PokemonCard.propTypes={
+  pokemon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string,
+}).isRequired,
 }
   
 
