@@ -1,25 +1,21 @@
 import PropTypes from "prop-types";
 
-function PokemonCard(props) {
+function PokemonCard(  {pokemon} ) {
 
-if(props.pokemon.imgSrc!==undefined) {
-    return <figure>
-  
-    <img src={props.pokemon.imgSrc} alt={props.pokemon.name}/>
-    <figcaption> {props.pokemon.name} </figcaption>
+if(pokemon.imgSrc!==undefined) { // can use another trick without if else butif also is basic
+    return <figure> 
+    <img src={pokemon.imgSrc} alt={pokemon.name}/>
+    <figcaption> {pokemon.name} </figcaption>
    </figure>;
 }
  else {
     return <figure>
-
     <p> ??? </p>
-    <figcaption> {props.pokemon.name} </figcaption>
-    </figure>;
-        
+    <figcaption> {pokemon.name} </figcaption>
+    </figure>;     
  }
    
 }
-
 PokemonCard.propTypes={
   pokemon: PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -27,5 +23,5 @@ PokemonCard.propTypes={
 }).isRequired,
 }
   
-
   export default PokemonCard;
+

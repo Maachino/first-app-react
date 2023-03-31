@@ -31,19 +31,19 @@ function App() {
     const [count, setCount] = useState(0);
 
     const next = () => {
-      if (count < pokemonList.length-1) { setCount(count + 1) }
+      if (count < pokemonList.length-1) { setCount(count+1) }
     }
     const previous = () => {
-      if (count > 0) { setCount(count - 1) }
+      if (count > 0) { setCount(count-1 )}
     
     }
     
     return (
       <div>
         <PokemonCard pokemon={pokemonList[count]} />
-        <button onClick={previous}>previous Pokemon</button>
+                <button onClick={previous}>previous Pokemon</button>
         <button onClick={next}>Next Pokemon</button>
-        <br/><p>´Pokemon number {count+1} Of {pokemonList.length}´</p>
+        <br/><p>Pokemon number {count+1} Of {pokemonList.length}</p>
       </div>
     );
     }
