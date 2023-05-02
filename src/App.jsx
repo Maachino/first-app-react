@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import PokemonCard from "./components/PokemonCard";
 
@@ -33,11 +33,20 @@ const pokemonList = [
 
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
+  const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    setShowMessage(true);
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 3000);
+  }, []);
 
   const pokemon = pokemonList[pokemonIndex];
 
   return (
     <div className="App">
+      {showMessage && <div className="message">Hello Pokemon Trainer :)</div>}
       <NavBar
         pokemonIndex={pokemonIndex}
         setPokemonIndex={setPokemonIndex}
@@ -49,3 +58,10 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+

@@ -1,14 +1,31 @@
+import { useState } from "react";
+
 import PropTypes from "prop-types";
 
 function NavBar({ pokemonIndex, setPokemonIndex, pokemonList }) {
+
+  const [alertShown, setAlertShown] = useState(false);
   const pickPrevious = () => {
-    setPokemonIndex(pokemonIndex - 1);
+    const newIndex = pokemonIndex - 1;
+    setPokemonIndex(newIndex);
+
+    // Affichez l'alerte "pika pikachu !!!" lorsque le pokémon choisi devient "pikachu"
+    if (pokemonList[newIndex].name === "pikachu" && !alertShown) {
+      alert("pika pikachu !!!");
+      setAlertShown(true);
+    }
   };
 
   const pickNext = () => {
-    setPokemonIndex(pokemonIndex + 1);
-  };
+    const newIndex = pokemonIndex + 1;
+    setPokemonIndex(newIndex);
 
+    // Affichez l'alerte "pika pikachu !!!" lorsque le pokémon choisi devient "pikachu"
+    if (pokemonList[newIndex].name === "pikachu" && !alertShown) {
+      alert("pika pikachu !!!");
+      setAlertShown(true);
+    }
+  };
   return (
     <nav>
       {pokemonIndex > 0 && (
